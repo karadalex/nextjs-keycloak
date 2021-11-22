@@ -1,6 +1,7 @@
 import { useUser } from '../lib/hooks'
 import Layout from '../components/layout'
 
+
 const Profile = () => {
   const user = useUser({ redirectTo: '/api/login' })
 
@@ -20,6 +21,9 @@ const Profile = () => {
           word-wrap: break-word;
         }
       `}</style>
+
+      <h2>Keycloak account</h2>
+      <a href="http://localhost:8080/auth/realms/nextjs/account/#/">Manage account</a>
     </Layout>
   )
 }
