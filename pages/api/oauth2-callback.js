@@ -20,13 +20,11 @@ export default nextConnect()
   .use(passport.initialize())
   .get(async (req, res) => {
     try {
-      const user = await authenticate('oauth2', req, res)
+      const session = await authenticate('oauth2', req, res)
       // session is the payload to save in the token, it may contain basic info about the user
-      const session = { ...user }
-
       await setLoginSession(res, session)
 
-      res.status(200).send({ done: true, user })
+      res.status(200).send({ session })
     } catch (error) {
       console.error(error)
       res.status(401).send(error.message)
