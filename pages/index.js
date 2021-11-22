@@ -6,12 +6,12 @@ const Home = () => {
 
   return (
     <Layout>
-      <h1>Passport.js Example</h1>
+      <h1>Passport.js Example with OAuth2 from Keycloak</h1>
 
       <p>Steps to test the example:</p>
 
       <ol>
-        <li>Click Login and enter a username and password.</li>
+        <li>Click Login and login via Keycloak</li>
         <li>
           You'll be redirected to Home. Click on Profile, notice how your
           session is being used through a token stored in a cookie.

@@ -23,8 +23,8 @@ export default nextConnect()
       const session = await authenticate('oauth2', req, res)
       // session is the payload to save in the token, it may contain basic info about the user
       await setLoginSession(res, session)
-
-      res.status(200).send({ session })
+      
+      res.redirect("/")
     } catch (error) {
       console.error(error)
       res.status(401).send(error.message)
