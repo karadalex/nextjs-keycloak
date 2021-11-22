@@ -3,7 +3,6 @@ import nextConnect from 'next-connect'
 import { setLoginSession } from '../../lib/auth'
 import { oauth2Strategy } from "../../lib/oauth2"
 
-
 const authenticate = (method, req, res) =>
   new Promise((resolve, reject) => {
     passport.authenticate(method, (error, token) => {
@@ -15,7 +14,7 @@ const authenticate = (method, req, res) =>
     })(req, res)
   })
 
-  passport.use(oauth2Strategy)
+passport.use(oauth2Strategy)
 
 export default nextConnect()
   .use(passport.initialize())
@@ -27,7 +26,7 @@ export default nextConnect()
 
       await setLoginSession(res, session)
 
-      res.status(200).send({ done: true })
+      res.status(200).send({ done: true, user })
     } catch (error) {
       console.error(error)
       res.status(401).send(error.message)

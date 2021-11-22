@@ -26,7 +26,7 @@ const Header = () => {
             </>
           ) : (
             <li>
-              <Link href="/login">
+              <Link href="/api/login">
                 <a>Login</a>
               </Link>
             </li>
